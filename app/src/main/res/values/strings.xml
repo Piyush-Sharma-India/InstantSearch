@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">InstantSearch</string>
+    <string name="book_name">Book Name</string>
+    <string name="author">Author</string>
+    <string name="price">Price</string>
+    <string name="filters">Filters</string>
+    <string name="rs">Rs. \u0020</string>
+</resources>
