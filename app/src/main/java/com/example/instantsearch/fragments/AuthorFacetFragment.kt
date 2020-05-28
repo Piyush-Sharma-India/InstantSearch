@@ -13,7 +13,7 @@ import com.algolia.instantsearch.helper.android.list.autoScrollToStart
 import com.algolia.instantsearch.helper.filter.facet.connectView
 import com.example.instantsearch.R
 import com.example.instantsearch.viewholder.AuthorFacetListViewHolder
-import com.example.instantsearch.viewmodel.BookViewModel
+import com.example.instantsearch.viewmodel.AlgoliaViewModel
 import kotlinx.android.synthetic.main.author_facet_fragment.*
 
 class AuthorFacetFragment : Fragment() {
@@ -27,14 +27,14 @@ class AuthorFacetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel = ViewModelProvider(requireActivity())[BookViewModel::class.java]
+        val viewModel = ViewModelProvider(requireActivity())[AlgoliaViewModel::class.java]
         val authorFacetAdapter = initAuthorFacetList()
 
         createConnection(viewModel, authorFacetAdapter)
     }
 
     private fun createConnection(
-        viewModel: BookViewModel,
+        viewModel: AlgoliaViewModel,
         authorFacetAdapter: FacetListAdapter
     ) {
         mConnectionHandler += viewModel.mAuthorFacetList.connectView(

@@ -18,7 +18,7 @@ import com.algolia.instantsearch.helper.stats.connectView
 import com.example.instantsearch.R
 import com.example.instantsearch.activity.BookSearchActivity
 import com.example.instantsearch.adapters.BookPagedListAdapter
-import com.example.instantsearch.viewmodel.BookViewModel
+import com.example.instantsearch.viewmodel.AlgoliaViewModel
 import kotlinx.android.synthetic.main.book_fragment_layout.*
 
 class BookFragment : Fragment() {
@@ -36,7 +36,7 @@ class BookFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel = ViewModelProvider(requireActivity())[BookViewModel::class.java]
+        val viewModel = ViewModelProvider(requireActivity())[AlgoliaViewModel::class.java]
 
         setUpBookList(viewModel)
         createConnection(viewModel)
@@ -46,7 +46,7 @@ class BookFragment : Fragment() {
         }
     }
 
-    private fun createConnection(viewModel: BookViewModel) {
+    private fun createConnection(viewModel: AlgoliaViewModel) {
         val searchBoxView = SearchBoxViewAppCompat(searchView)
         val statsView = StatsTextView(stats)
 
@@ -54,7 +54,7 @@ class BookFragment : Fragment() {
         mConnectionHandler += viewModel.mStatus.connectView(statsView, StatsPresenterImpl())
     }
 
-    private fun setUpBookList(viewModel: BookViewModel) {
+    private fun setUpBookList(viewModel: AlgoliaViewModel) {
         val bookAdapter = BookPagedListAdapter()
 
         viewModel.mBookList.observe(viewLifecycleOwner, Observer { hits ->

@@ -25,7 +25,7 @@ import com.example.instantsearch.constants.Constants
 import com.example.instantsearch.data.Book
 import io.ktor.client.features.logging.LogLevel
 
-class BookViewModel : ViewModel() {
+class AlgoliaViewModel : ViewModel() {
     private val mClient = ClientSearch(
         ApplicationID(Constants.APPLICATION_ID),
         APIKey(Constants.API_KEY), LogLevel.ALL
